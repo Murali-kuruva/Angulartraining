@@ -20,14 +20,62 @@
     </script> 
 </head> 
   
-<body> 
-    <center> 
-      
-            <input type="text" name=n value=""> 
-              
-            <br><br> 
-              
-            <input type="button" value="Check" onClick="p()"> 
-        
-    </center> 
-</body> 
+<body>
+      <input type="text" name=n value=""> 
+       <input type="button" value="Check" onClick="p()"> 
+
+</body>
+
+
+prime numbers from 1-100
+
+
+primeNumber(1, 100) 
+function primeNumber(from, to){ 
+    	var flag=false; 
+    	for(i = from; i <= to; i++) 
+         { 
+             for( j = 2; j < i; j++) 
+             { 
+                 if(i % j == 0) 
+                 { 
+                     flag = false; 
+                     break; 
+                 } 
+                 else 
+                 { 
+                     flag = true; 
+                 } 
+             } 
+             if(flag) 
+             { 
+                 console.log(i); 
+             } 
+         } 
+    } 
+
+Prinumners from 100-200
+
+primeNumber(100, 200) 
+function primeNumber(from, to){ 
+    	var flag=false; 
+    	for(i = from; i <= to; i++) 
+         { 
+             for( j = 2; j < i; j++) 
+             { 
+                 if(i % j == 0) 
+                 { 
+                     flag = false; 
+                     break; 
+                 } 
+                 else 
+                 { 
+                     flag = true; 
+                 } 
+             } 
+             if(flag) 
+             { 
+                 console.log(i); 
+             } 
+         } 
+    }  
