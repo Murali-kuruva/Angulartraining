@@ -1,0 +1,10 @@
+function searchitem(searchValue)
+{
+
+    let result=[];
+
+    result=this.authors.contains(searchValue);
+
+    return result;
+
+}
