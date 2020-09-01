@@ -1,0 +1,61 @@
+
+
+.header h1{
+    size:2em;
+    text-shadow: -3px -3px 3px gray;
+}
+
+.header .nav{
+    list-style: none;
+    padding-bottom:0px;
+    margin-bottom: 0px;  
+    
+}
+
+.header .nav  li{    
+    display:inline;
+    border-right: 1px solid gray;
+    padding-right: 2px;
+}
+
+.header .nav a, .header .nav a:hover{
+    text-decoration:none;
+    color: black;
+}
+
+.header .nav a:hover{
+    text-shadow: -2px -2px 2px gray;
+    
+}
+
+.header{
+    border-bottom: 2px solid gray;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+
+.task-list li{
+    list-style:none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding:5px;
+    margin-bottom: 5px;
+    max-width: 500px;
+}
+
+.task-list li:hover{
+
+    background-color: lightyellow;
+}
+
+.task-list .task-content{
+    min-width:80%;
+    font-size:1.5em;
+}
+.task-icons {
+    margin-left:20%;
+}
+
+.fa-minus-circle{
+    color:red;
+}

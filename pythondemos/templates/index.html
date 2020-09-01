@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Flask On! -- Home</title>
+{% endblock %}
+
+
+{% block body %}
+
+<h1>Add Task</h1>
+
+<div class='task-editor'>
+    <form method='POST'>
+        <label for='content'>Add Task</label>
+        <input type='text' name='content' />
+        <input type='submit' value='Submit'/>
+    </form>    
+</div>
+
+<h2>Tasks</h2>
+
+
+<ul class='task-list'>
+
+    {% for task in tasks %}
+    <li>
+        <span class='task-content'>{{task.content}}</span>  
+        <span class='task-icons'>
+            <a href='/delete/{{task.id}}'><i class="fa fa-minus-circle"></i>Delete</a> 
+            <i class="fa fa-check-square"></i> 
+        </span>
+    </li>    
+    {% endfor %}
+
+    <!-- <li>
+        <span class='task-content'>Task 1</span>  
+        <span class='task-icons'>
+            <i class="fa fa-minus-circle"></i> 
+            <i class="fa fa-square"></i>
+        </span>
+    </li>    
+
+    <li>
+        <span class='task-content'>Task 1</span>  
+        <span class='task-icons'>
+            <i class="fa fa-minus-circle"></i> 
+            <i class="fa fa-check-square"></i> 
+        </span>
+    </li>     -->
+</ul>
+
+
+
+{% endblock %}

@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <style>
+        fieldset {
+            width: 60%;
+            margin: 20px;
+        }
+    </style>
+
+  
+
+</head>
+
+<body   >
+    <fieldset>
+        <legend>Toolbar</legend>
+        <div>
+            Number
+            <input type='text' id='number' />
+            <input type='button' value='Add To List' onclick='addToList();'   />
+            <!-- 
+                clear() called here is not my function
+                but a function defined withing the button class
+                that does nothing.
+                when you call clear() for a button, naturally it will 
+                prefer its own clear rather than that on window object than window 
+            -->
+            <input type='button' value='Clear Display' onclick='clear()'/>
+            <input type='button' value='Reset Calculator' onclick='reset();'  />
+
+            <br/>
+            <input type='button' value='Sum' onClick='sum();' />
+            <input type='button' value='Average'  />
+            <input type='button' value='Find Min'  />
+
+        </div>
+
+    </fieldset>
+
+    <hr/>
+
+    <fieldset>
+        <legend>Console</legend>
+
+        <div id='console'>
+
+        </div>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Number List</legend>
+
+        <ul id='numberList'>
+
+        </ul>
+
+        <input type='button' value='refresh list'  />
+    </fieldset>
+
+  
+    <script src='calc.js'></script>
+    
+</body>
+
+</html>
