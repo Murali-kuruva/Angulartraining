@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bookweb-client": {
+    "booksweb-client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bookweb-client",
+            "outputPath": "dist/booksweb-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,10 +23,18 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.css"
+
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
-            "scripts": []
+            "styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
+              
+            ]
+          
           },
           "configurations": {
             "production": {
@@ -62,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bookweb-client:build"
+            "browserTarget": "booksweb-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bookweb-client:build:production"
+              "browserTarget": "booksweb-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bookweb-client:build"
+            "browserTarget": "booksweb-client:build"
           }
         },
         "test": {
@@ -110,15 +118,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "bookweb-client:serve"
+            "devServerTarget": "booksweb-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "bookweb-client:serve:production"
+              "devServerTarget": "booksweb-client:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "bookweb-client"
+  "defaultProject": "booksweb-client"
 }
