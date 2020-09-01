@@ -4,6 +4,7 @@ import { BrowserModule} from '@angular/platform-browser';
 import {BooksWebHeaderComponent} from './books-web-header.component';
 import {BooksWebFooterComponent} from './books-web-footer.component'; 
 import {BookListComponent} from './book-list.component'; 
+import {BooksbHeaderComponent} from'./boks-web-header.component';
 
 
 
@@ -18,7 +19,9 @@ import {BookListComponent} from './book-list.component';
         BooksWebAppComponent,
         BooksWebHeaderComponent,
         BooksWebFooterComponent,
-        BookListComponent
+        BookListComponent,
+        
+        
         
     ],    
     
