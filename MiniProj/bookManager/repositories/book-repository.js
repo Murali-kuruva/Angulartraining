@@ -1,11 +1,14 @@
 let book = require('../entities/book');
 const MongoClient = require('mongodb').MongoClient;
+
+require('dotenv').config()
+
 const username = process.env.BMS_DB_USERNAME;
 const password = process.env.BMS_DB_PASSWORD;
 const server = process.env.BMS_DB_SERVER;
 
-const dbname = 'booksdb';
-const collectionName = 'authors';
+const dbname = 'bookmanager';
+const collectionName = 'books';
 
 const uri = `mongodb+srv://${username}:${password}@${server}/${dbname}?retryWrites=true&w=majority`;
 
@@ -75,7 +78,7 @@ class BookRepository {
     async getById(id) {
         //let author=await (await this.getAll()).find(a=>a.id===id);
 
-        let author = await this.collection.findOne({ id: id });
+        let author = await this.collection.findOne({ name: id });
         return author;
     }
 

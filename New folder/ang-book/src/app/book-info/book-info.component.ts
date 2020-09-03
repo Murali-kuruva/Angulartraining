@@ -9,6 +9,7 @@ export class BookInfoComponent implements OnInit {
 
   public book;
 
+ 
   constructor() { 
 
     this.book= {

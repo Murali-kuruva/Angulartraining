@@ -7,6 +7,7 @@ import {BooksWebFooterComponent} from './books-web-footer.component';
 import { BookInfoComponent } from './book-info/book-info.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { CaRangeComponent } from './ca-range/ca-range.component'; 
+import {StarRatingModule} from 'angular-star-rating'
 
 
 
@@ -14,7 +15,8 @@ import { CaRangeComponent } from './ca-range/ca-range.component';
 @NgModule({
 
     imports:[
-        BrowserModule  //most important angular module to enable component rendering
+        BrowserModule , //most important angular module to enable component rendering
+        StarRatingModule
     ],
 
     declarations:[ //list all the components and other elements related to current module

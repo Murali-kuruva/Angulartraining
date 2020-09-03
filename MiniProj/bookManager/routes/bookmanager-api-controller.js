@@ -7,7 +7,7 @@ let bookRepository=new BookRepository();
 var bookService=new BookService(bookRepository);
 
 //express calls user logic
-// for url --> /authors
+// for url --> /books
 async function  getBookList(request,response){
 
     //user logic to get user data
@@ -15,12 +15,20 @@ async function  getBookList(request,response){
     //express sends JSON response directly to the client
     await response.send(books);  
 }
+async function  rendeBookList(request,response){
+
+    //user logic to get user data
+    let books=await bookService.getAll();  //user logic
+    //express sends JSON response directly to the client
+    await response.render('books/list',{books}); 
+}
+
 
 async function addBook(request,response){
     var book=request.body;
     try{
         await bookService.addAuthor(book);
-        response.status(201); //created
+        response.status(201); //created install
         await response.send(book);
     }catch(e){
         response.status(400);
@@ -34,10 +42,10 @@ async function addBook(request,response){
 async function getBookById(request,response){
 
     //express extracts url part and adds to request.params
-    let id= request.params.bookid; //this should be the last part of url /authors/details/:authorId
+    let id= request.params.id; //this should be the last part of url /authors/details/:authorId
 
     //user logic
-    let book=await authorService.getById(id);
+    let book=await bookService.getById(id);
     if(book)
         await response.send(book); //express
     else{
@@ -58,11 +66,12 @@ async function removeBook(request,response){
 var express = require('express');
 var router = express.Router();
 
-//all this will be mapped /authors/
+//all this will be mapped /books/
 router.get('/', getBookList);
 router.post('/', addBook);
 router.get('/:bookid', getBookById);
 router.delete('/:bookid', removeBook);
+router.get('/list', rendeBookList);
 
 
 

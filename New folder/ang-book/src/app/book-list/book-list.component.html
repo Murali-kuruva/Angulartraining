@@ -1,7 +1,6 @@
-
 <h1 class="page-title">Books</h1>
 
-<input type='checkbox'  [checked]='showImages'  (click)='toggleImages()'  /> Show Covers
+<input type='checkbox' [checked]='showImages' (click)='toggleImages()' /> Show Covers
 
 <table class="table table-condensed">
     <thead>
@@ -17,27 +16,52 @@
         </tr>
     </thead>
     <tbody>
-        <tr  *ngFor='let book of books' >
+        <tr *ngFor='let book of books'>
 
 
 
-            <td *ngIf='showImages'   >  
-                <img [hidden]='!showImages'  [src]='book.cover'  [style.width.px]='imageWidth' >
+            <td *ngIf='showImages'>
+                <img [hidden]='!showImages' [src]='book.cover' [style.width.px]='imageWidth'>
             </td>
             <td>{{book.title}}</td>
             <td>{{book. author}}</td>
             <td>{{book.price}}</td>
             <td>
-                {{book.rating}}
+                <span *ngIf="book.rating <1.4"> {{book.rating}} 
+                    <i class="fa" [ngClass]="{'fa-star-o':book.rating,'fa-star':!book.rating}"></i>
+                </span>
+                <span *ngIf="book.rating >=1.5 && book.rating <2.4"> {{book.rating}}
+                    <i class="fa" [ngClass]="{'fa-star-o':!book.rating,'fa-star':book.rating}"></i>
+                    <i class="fa" [ngClass]="{'fa-star-o':book.rating,'fa-star':!book.rating}"></i>
+                </span>
+                <span *ngIf="book.rating >=2.5 && book.rating <3.4"> {{book.rating}}
+                    <i class="fa" [ngClass]="{'fa-star-o':!book.rating,'fa-star':book.rating}"></i>
+                    <i class="fa" [ngClass]="{'fa-star-o':!book.rating,'fa-star':book.rating}"></i>
+                    <i class="fa" [ngClass]="{'fav fav-star is-animating':book.rating,'fa-star':!book.rating}"></i>
+                </span>
+                <span *ngIf="book.rating >=3.5 && book.rating <4.4"> {{book.rating}}
+                    <i class="fa" [ngClass]="{'fa-star-o':!book.rating,'fa-star':book.rating}"></i>
+                    <i class="fa" [ngClass]="{'fa-star-o':!book.rating,'fa-star':book.rating}"></i>
+                    <i class="fa" [ngClass]="{'fa-star-o':!book.rating,'fa-star':book.rating}"></i>
+                    <i class="fa" [ngClass]="{'fa-star-o':book.rating,'fa-star':!book.rating}"></i>
+                </span>
                 
+                <span *ngIf="book.rating >=4.5"> {{book.rating}}
+                    <i class="fa" [ngClass]="{'fa-star-o':!book.rating,'fa-star':book.rating}"></i>
+                    <i class="fa" [ngClass]="{'fa-star-o':!book.rating,'fa-star':book.rating}"></i>
+                    <i class="fa" [ngClass]="{'fa-star-o':!book.rating,'fa-star':book.rating}"></i>
+                    <i class="fa" [ngClass]="{'fa-star-o':!book.rating,'fa-star':book.rating}"></i>
+                    <i class="fa" [ngClass]="{'fa-star-o':book.rating,'fa-star':!book.rating}"></i>
+                </span>
+
 
             </td>
         </tr>
-     
-        
+
+
     </tbody>
 </table>
 
 
-<hr/>
+<hr />
 <p class='tags'>Total books: {{books.length}}</p>

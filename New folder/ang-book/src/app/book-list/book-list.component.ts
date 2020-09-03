@@ -11,7 +11,13 @@ export class BookListComponent implements OnInit {
 
   public showImages=true;
   public books: Book[];
-  
+  // getStars = function(rating) {
+  //   // Get the value
+  //   var val = parseFloat(rating);
+  //   // Turn value into number/100
+  //   var size = val/5*100;
+  //   return size + '%';
+  // }
   constructor() { 
 
     this.books=[

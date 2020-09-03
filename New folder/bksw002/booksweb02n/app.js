@@ -11,7 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authorRouter= require('./routes/author-controller');
 var authorApiRouter= require('./routes/author-api-controller');
-
+var bookApiRouter=require('./routes/bookmanager-api-controller');
 var app = express();
 
 // view engine setup
@@ -47,6 +47,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/authors',authorRouter);
 app.use('/api/authors', authorApiRouter);
+app.use('/books', bookApiRouter);
 
 
 

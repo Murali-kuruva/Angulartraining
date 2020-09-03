@@ -5,8 +5,8 @@ const password= process.env.BMS_DB_PASSWORD;
 const server=process.env.BMS_DB_SERVER;
 
 
-const dbname='booksdb';
-const collectionName='authors';
+const dbname='bookmanager';
+const collectionName='books';
 
 const uri = `mongodb+srv://${username}:${password}@${server}/${dbname}?retryWrites=true&w=majority`;
 
