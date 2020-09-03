@@ -27,7 +27,7 @@ async function  rendeBookList(request,response){
 async function addBook(request,response){
     var book=request.body;
     try{
-        await bookService.addAuthor(book);
+        await bookService.add(book);
         response.status(201); //created install
         await response.send(book);
     }catch(e){
