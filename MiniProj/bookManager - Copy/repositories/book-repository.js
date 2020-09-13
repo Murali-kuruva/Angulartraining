@@ -78,13 +78,13 @@ class BookRepository {
     async getById(id) {
         //let author=await (await this.getAll()).find(a=>a.id===id);
 
-        let author = await this.collection.findOne({ id: id });
-        return author;
+        let book = await this.collection.findOne({ id: id });
+        return book;
     }
 
     async remove(id) {
 
-        await collection.deleteOne({ id: id });
+        await this.collection.deleteOne({ id: id });
     }
 
     save() {

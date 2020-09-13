@@ -11,7 +11,7 @@ class BookService{
     }
     async add(book){
         if(book && book.title){
-            console.log('author is added',book.title);
+            console.log('book is added',book.title);
             if(!book.id)
             book.id=book.title.toLowerCase().replace(' ','-');
             // if(!author.books)
