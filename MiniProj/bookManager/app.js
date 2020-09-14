@@ -1,5 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
+const cors = require('cors');
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -9,8 +11,11 @@ var usersRouter = require('./routes/users');
 var bookRouter=require('./routes/bookmanagerController');
 var authorRouter=require('./routes/author-controller');
 var bookApiRouter= require('./routes/bookmanager-api-controller');
+var authorApiRouter=require('./routes/author-api-controller');
 
 var app = express();
+
+app.use(cors());
 
 // view engine setup
 
@@ -35,6 +40,14 @@ app.use('/users', usersRouter);
 app.use('/books',bookRouter);
 app.use('/authors',authorRouter);
 app.use('/api/books', bookApiRouter);
+app.use('/api/authors',authorApiRouter);
+
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

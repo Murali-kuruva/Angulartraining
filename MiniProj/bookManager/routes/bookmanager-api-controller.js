@@ -25,7 +25,9 @@ async function  rendeBookList(request,response){
 
 
 async function addBook(request,response){
+    debugger;
     var book=request.body;
+    console.log('book',book);
     try{
         await bookService.add(book);
         response.status(201); //created install
@@ -42,7 +44,7 @@ async function addBook(request,response){
 async function getBookById(request,response){
 
     //express extracts url part and adds to request.params
-    let id= request.params.id; //this should be the last part of url /authors/details/:authorId
+    let id= request.params.bookid; //this should be the last part of url /authors/details/:authorId
 
     //user logic
     let book=await bookService.getById(id);
@@ -50,7 +52,7 @@ async function getBookById(request,response){
         await response.send(book); //express
     else{
         response.status(404); //not found -->express
-        await response.send({error: `author not found`, id:id}); //express
+        await response.send({error: `book not found`, id:id}); //express
     }
 
 };
@@ -59,19 +61,19 @@ async function removeBook(request,response){
     let id=request.params.bookid;
     await bookService.remove(id);
     response.status(204); //no content
-    await response.send({});
+    await response.send({error: `book not found`, id:id});
 }
 
 
 var express = require('express');
 var router = express.Router();
 
+
 //all this will be mapped /books/
 router.get('/', getBookList);
 router.post('/', addBook);
 router.get('/:bookid', getBookById);
 router.delete('/:bookid', removeBook);
-router.get('/list', rendeBookList);
 
 
 

@@ -1,0 +1,49 @@
+<p></p>
+<button class='btn btn-primary' (click)='goBack()'>Back to List</button>
+<div *ngIf="book.length >0">
+
+
+<div *ngFor="let bookdata of book">
+
+
+
+    <h2 class='page-title'>{{bookdata.title}}</h2>
+
+    <div class='row'>
+
+        <div class="col-md-6">
+            <img src='{{book.cover|altvalue:book.isbn|prefix:"/assets/images/books/"}}' class='cover-image' />
+        </div>
+
+        <div class="col-md-6">
+            <ul class='meta-list'>
+                <li ca-rainbow-color>Author: {{bookdata.Author}}</li>
+                <li ca-rainbow-color>Price: {{bookdata.price}}</li>
+                <li ca-rainbow-color>Rating: <ca-rating [value]='bookdata.rating'></ca-rating> {{bookdata.rating}}</li>
+                <li>Our Recommendation:
+                    <p ca-rainbow-color>{{bookdata.rating|ratingadvise}} </p>
+                </li>
+            </ul>
+            <hr />
+
+            <!-- <div class='description'>
+            
+            {{book.description}}
+        </div>
+        <hr/>
+        <div class='tags'>
+            {{book.tags}}
+        </div> -->
+
+        </div>
+
+
+
+
+
+    </div>
+
+</div>
+
+</div>
+<!-- <app-book-info [book]='selectedBook'></app-book-info> -->

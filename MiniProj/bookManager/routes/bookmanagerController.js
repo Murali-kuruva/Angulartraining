@@ -27,6 +27,7 @@ async function  showBookForm(request,response){
 
 async function addBook(request,response){
     var book=request.body;
+    console.log('book',book);
     try{
     await bookService.add(book);
     await response.redirect('/books');

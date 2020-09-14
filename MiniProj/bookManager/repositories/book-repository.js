@@ -70,7 +70,7 @@ class BookRepository {
     }
 
     async add(book) {
-
+          console
         await this.collection.insert(book);
 
     }
