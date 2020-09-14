@@ -1,0 +1,52 @@
+
+
+<h1 class='page-title'>Add New Author</h1>
+
+<div class='container'>
+
+
+        <div class='form-group'>
+            <label for='aid'>aid</label>
+            <input type='text' class='form-control' id='aid'  [(ngModel)]='author.aid'   aria-describedby='aidlHelp' placeholder='enter the value of aid'>
+            <small id='aidHelp' class='form-text text-muted'>Enter the value of aid</small>
+        </div>
+        
+        <div class='form-group'>
+            <label for='title'>Author Name</label>
+            <input type='text' class='form-control' id='name'  [(ngModel)]='author.name'   aria-describedby='namelHelp' placeholder='enter the  Name'>
+            <small id='nameHelp' class='form-text text-muted'>Enter the  Name</small>
+        </div>
+        
+        <div class='form-group'>
+            <label for='author'>Biography</label>
+            <input type='text' class='form-control' id='biography'  [(ngModel)]='author.biography'   aria-describedby='biographylHelp' placeholder='enter the value of biography'>
+            <small id='biographyHelp' class='form-text text-muted'>Enter the value of author</small>
+        </div>
+        
+        <div class='form-group'>
+            <label for='price'>photograph</label>
+            <input type='text' class='form-control' id='photograph'  [(ngModel)]='author.photograph'   aria-describedby='photographlHelp' placeholder='enter the value of photograph'>
+            <small id='photographHelp' class='form-text text-muted'>Enter the value of photograph</small>
+        </div>
+        <div class='form-group'>
+            <label for='votes'>email</label>
+            <input type='text' class='form-control' id='email'  [(ngModel)]='author.email'   aria-describedby='emaillHelp' placeholder='enter the value of email'>
+            <small id='emailHelp' class='form-text text-muted'>Enter the value of email</small>
+        </div>
+        
+        
+    
+        
+        <button class='btn btn-primary btn-lg' (click)='onAddAuthor()' >Add Author</button>
+
+        <ul class='error'>
+            <li *ngFor='let error of errors' class='text-danger'>{{error}}</li>
+        </ul>
+
+
+
+    
+
+</div>
+
+

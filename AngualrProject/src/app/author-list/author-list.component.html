@@ -1,0 +1,62 @@
+
+<h1 ca-highlight class="page-title">Authors</h1>
+
+<!-- <input type='checkbox'  [checked]='showImages'  (click)='toggleImages()'  /> Show Covers -->
+
+<table class="table table-condensed table-striped table-hover"  >
+    <thead ca-highlight highlight-class='table-header'> 
+        <tr style="background-color: blue;">
+            <!-- <th *ngIf='showImages'>
+                Poster
+                <ca-range 
+                [min]='75' 
+                [max]='200' 
+                [delta]='15' 
+                
+                [(value)]='imageWidth' 
+                
+                
+
+
+                (changed)='onImageWidthInfoChanged($event)'></ca-range>
+            </th> -->
+            <th>Name</th>
+            <th>Biography</th>
+            <th>Email</th>
+            <th>Action</th>
+            <!-- <th>Release Date</th>
+            <th>Rating</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor='let author of authors'  >
+
+
+
+            <!-- <td *ngIf='showImages'>  
+                
+                <img [hidden]='!showImages'  [src]='book.cover|altvalue:book.isbn:".jpg"|prefix:"/assets/images/books/"'  [style.width.px]='imageWidth' >
+            </td> -->
+            <td ca-highlight='lightskyblue' >{{author.name|uppercase}}</td>
+            <td ca-highlight='lightyellow'>{{author.biography|lowercase}} </td>
+            <td>{{author.email}}</td>
+            <!-- <td>{{book.releaseDate|date:"MMMM yyyy"|uppercase}}</td>
+            <td>
+                <ca-rating value='{{book.rating}}'  ></ca-rating>
+                {{book.rating|ratingadvise}} 
+
+            </td> -->
+            <td>
+                <button class='btn btn btn-primary btn-sm' [routerLink]="['/author/details/',author.id]">Details</button>
+            
+                <button class='btn btn btn-danger btn-sm' (click)='deleteAuthor(author.id)'>Delete</button>
+            </td>
+        </tr>
+      
+        
+    </tbody>
+</table>
+
+
+<hr/>
+<p class='tags'>Total Authors: {{authors.length}}</p>

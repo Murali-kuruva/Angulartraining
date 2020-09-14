@@ -1,0 +1,36 @@
+
+<h2 class='page-title'>{{author.name}}</h2>
+<div class='row'>
+
+    <div class="col-md-6">
+        <!-- <img src='{{book.cover|altvalue:book.isbn|prefix:"/assets/images/books/"}}' class='cover-image' /> -->
+        <img src='' class='cover-image' />
+    </div>
+    
+    <div class="col-md-6">
+        <ul class='meta-list'>
+            <li ca-rainbow-color >Name: {{author.name}}</li>
+            <li ca-rainbow-color>Biography: {{author.biography}}</li>
+            <!-- <li ca-rainbow-color>Rating: <ca-rating [value]='book.rating' ></ca-rating> {{book.rating}}</li>             -->
+            <li>Email: 
+                <p ca-rainbow-color>{{author.email}}  </p>
+            </li>
+        </ul>
+        <hr/>
+        
+        <!-- <div class='description'>
+            
+            {{book.description}}
+        </div> -->
+        <hr/>
+        <!-- <div class='tags'>
+            {{book.tags}}
+        </div> -->
+
+    </div>
+    
+
+
+   
+
+</div>
