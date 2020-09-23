@@ -1,5 +1,17 @@
+# Stage 1
+FROM node:10-alpine as build-step
+
+RUN mkdir -p /app
+WORKDIR /app
+COPY package.json /app
+
+RUN npm install
+COPY . /app
+
+RUN npm run build --prod
+
+# Stage 2
+
 FROM nginx:1.17.1-alpine
 
-COPY .  /usr/share/nginx/html
-
-CMD ng serve --host 0.0.0.0 --port 3000
+COPY --from=build-step /app/bin/Angular2 /usr/share/nginx/html
